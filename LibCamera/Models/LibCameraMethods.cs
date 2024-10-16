@@ -32,9 +32,9 @@ namespace LibCamera
         }
 
         /// <summary>
-        /// Что-то интересное.
+        /// Формирует строку для железяки из модели <see cref="LibCameraModel"/>.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Строка для железяки.</returns>
         public override string ToString()
         {
             StringBuilder result = new StringBuilder();
@@ -118,7 +118,16 @@ namespace LibCamera
             return result.ToString();
         }
 
+        /// <summary>
+        /// Событие, подписавшись на которое можно обрабатывать вывод ошибки при установке неправильного значения какого-либо свойства 
+        /// модели <see cref="LibCameraModel"/>.
+        /// </summary>
         public event InvalidValueActionDelegate InvalidValueActionEvent;
+
+        /// <summary>
+        /// Делегат для подписки на событие <see cref="InvalidValueActionEvent"/>.
+        /// </summary>
+        /// <param name="propertyName">Название свойства, в котором было установлено неправильное значение.</param>
         public delegate void InvalidValueActionDelegate(string propertyName);
     }
 }
