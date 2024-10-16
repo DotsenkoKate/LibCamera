@@ -1,0 +1,540 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LibCamera</name>
+    </assembly>
+    <members>
+        <member name="M:LibCamera.Controllers.LibCameraController.Test(LibCamera.LibCameraModel)">
+            <summary>
+            Camera settings
+            </summary>
+            <param name="model">
+            camera(uint): It is a camera-id. max =  4 294 967 295 min = 0
+            
+            verbose(ushort): Set verbosity level. Level 0 is no output, 1 is default, 2 is verbose. max = 2 min = 0
+            
+            config(string): Read the options from a file. If no filename is specified, default to config.txt. In case of duplicate options, the ones provided on the command line will be used. Note that the config file must only contain the long form options. If set "-" to Config local _config will "config.txt".
+            
+            infoText(string): Sets the information string on the titlebar. Available values: %frame (frame number), %fps (framerate), %exp (shutter speed), %ag (analogue gain), %dg (digital gain), %rg (red colour gain), %bg (blue colour gain), %focus (focus FoM value), %aelock (AE locked status), %lp (lens position, if known), %afstate (AF state, if supported). Default: "#%frame (%fps fps) exp %exp ag %ag dg %dg".
+            
+            width(uint): Set the output image width (0 = use default value). max =  4 294 967 295 min = 0
+            
+            height(uint): Set the output image height (0 = use default value). max =  4 294 967 295 min = 0
+            
+            timeOut(uint): Time for which program runs. If no units are provided, default to ms. max =  4 294 967 295 min = 0
+            
+            output(string): Set the output file name.
+            
+            postProcessFile(string): Set the file name for configuring the post-processing.
+            
+            postProcessLibs(string): Set a custom location for the post-processing library .so files.
+            
+            noPreview(boolean): Do not show a preview window.
+            
+            preview(PreviewModel): Set the preview window dimensions, given as x,y,width,height e.g. 0,0,640,480.{x(uint), y(uint), width	(uint), height (uint)}
+            
+            fullscreen(boolean): Use a fullscreen preview window.
+            
+            qtPreview(boolean): Use Qt-based preview window (WARNING: causes heavy CPU load, fullscreen not supported).
+            
+            hFlip(boolean): Request a horizontal flip transform.
+            
+            vFlip(boolean): Request a vertical flip transform.
+            
+            rotation(boolean): Request an image rotation, 0 or 180. 0 (false) - не зеркалит, 180 (true) - зеркалит.
+            
+            roi(ROIModel): Region of Interest model. {x(double), y(double),relateWidth	(double), relateHeight (double)}
+            
+            shutter(uint): Set a fixed shutter speed. If no units are provided default to us. max =  4 294 967 295 min = 0
+            
+            gain(uint): Set a fixed gain value. max =  4 294 967 295 min = 0
+            
+            metering(MeteringEnum): Enum value for metering mode{0 - centre, 1 - spot, 2 - average, 3 - custom}.
+            
+            exposure(ExposureEnum): Enum value for exposure mode{0 - normal, 1 - sport}.
+            
+            ev(uint): Set the EV exposure compensation, where 0 = no change. max =  4 294 967 295 min = 0
+            
+            awb(AWBEnum): Enum value for automatic white balance mode{0 - auto, 1 - incandescent, 2 - tungsten, 3 - fluorescent, 4 - indoor, 5  - daylight, 6 - cloudy, 7 - custom}.
+            
+            awbGains(AWBGainsModel): Automatic white balance gains model {red(uint): max = 4 294 967 295 min = 0, blue(uint): max = 4 294 967 295 min = 0}.
+            
+            flush(boolean): Flush output data as soon as possible.
+            
+            wrap(uint): When writing multiple output files, reset the counter when it reaches this number. max =  4 294 967 295 min = 0
+            
+            brightness(double): Adjust the brightness of the output images, in the range -1.0 to 1.0. max = 1 min = -1
+            
+            contrast(double): Adjust the contrast of the output image, where 1.0 = normal contrast. max = 1 min = 0
+            
+            saturation(double): Adjust the colour saturation of the output, where 1.0 = normal and 0.0 = greyscale. max = 1 min = 0
+            
+            sharpness(double): Adjust the sharpness of the output image, where 1.0 = normal sharpening. max = 1 min = 0
+            
+            framerate(int): Set the fixed framerate for preview and video modes. max =  2 147 483 647 min = −2 147 483 648
+            
+            denoise(DenoiseEnum): Enum value for denoise mode {0 - auto, 1 - off, 2 - cdn_off, 3 - cdn_fast, 4 - cdn_hq}.
+            
+            viewFinderWidth(uint): Width of viewfinder frames from the camera (distinct from the preview window size). max =  4 294 967 295 min = 0
+            
+            viewFinderHeight(uint): Height of viewfinder frames from the camera (distinct from the preview window size). max =  4 294 967 295 min = 0
+            
+            tuningFile(string): Name of camera tuning file to use, omit this option for libcamera default behaviour.
+            
+            loresWidth(uint): Width of low resolution frames (use 0 to omit low resolution stream). max =  4 294 967 295 min = 0
+            
+            loresHeight(uint): Height of low resolution frames (use 0 to omit low resolution stream). max =  4 294 967 295 min = 0
+            
+            mode(ModeModel): Mode model for camera operation {w(uint), h(uint),bitDepth(uint), isPacked (bool)}. max uint =  4 294 967 295 min  uint = 0
+            
+            viewFinderMode(ModeModel): Mode model for viewfinder operation {w(uint), h(uint),bitDepth(uint), isPacked (bool)}. max uint =  4 294 967 295 min  uint = 0
+            
+            bufferCount(uint): Number of in-flight requests (and buffers) configured for video, raw, and still. max =  4 294 967 295 min = 0
+            
+            viewFinderBufferCount(uint): Number of in-flight requests (and buffers) configured for preview window. max =  4 294 967 295 min = 0
+            
+            noRaw(boolean): Disable requesting of a RAW stream. Will override any manual mode request when setting framerate.
+            
+            autoFocusMode(AutoFocusModeEnum): Enum value for auto focus mode{0 - manual, 1 - auto, 2 - continuous}.
+            
+            autoFocusRange(AutoFocusRangeEnum): Enum value for auto focus range{0 - normal, 1 - macro, 2 - full}.
+            
+            autoFocusSpeed(AutoFocusSpeedEnum): Enum value for auto focus speed{0 - normal, 1 - fast}.
+            
+            autoFocusWindow(ROIModel): Region of Interest model for auto focus window.{x(double), y(double), relateWidth (double), relateHeight (double)}
+            
+            lensPosition(string): Set the lens to a particular focus position, expressed as a reciprocal distance (0 moves the lens to infinity), or "default" for the hyperfocal distance. Pattern: (0)|(default).
+            
+            hdr(HDREnum): Enum value for high dynamic range mode {0 - off, 1 - auto, 2 - sensor,3 - single-exp}.
+            
+            metadata(string): Save captured image metadata to a file or "-" for stdout. Pattern: ([\d\w_]+)|(-). Example: e3_2_14  or -
+            
+            metadataFormat(MetadataFormatEnum): Enum value for metadata format.{0 - txt, 1 - json}
+            
+            flickerPeriod(FlickerPeriodModel): Flicker period model for adjustments. {units (string) {us, ms or s},  value (int)}
+            
+            bitrate(BitrateModel): Bitrate model for video encoding. {units (string) {Use string with pattern: [GMK]?[Bb]p[smh]},  value (int)}
+            
+            profile(string): Set the encoding profile. 
+            
+            level(uint): Set the encoding level. max =  4 294 967 295 min = 0
+             
+            intra(uint): Set the intra frame period. max =  4 294 967 295 min = 0
+            
+            inline(boolean): Force PPS/SPS header with every I frame (h264 only).
+            
+            codec(CodecEnum): Enum value for codec type.{0 - H264, 1 - Libav, 2 -Mjpeg, 3 - Yuv420}
+            
+            savePts (string): Save a timestamp file with this name.
+            
+            quality(uint): Set the MJPEG quality parameter (mjpeg only). Default = 50. max =  4 294 967 295 min = 0
+            
+            listen(boolean): Listen for an incoming client network connection before sending data to the client.
+            
+            keyPress(boolean): Pause or resume video recording when ENTER pressed.
+            
+            signal(boolean): Pause or resume video recording when signal received.
+            
+            initial(InitialEnum): Enum value for initial state.{0 - pause, 1 - record}
+            
+            split(boolean): Create a new output file every time recording is paused and then resumed.
+            
+            segment(uint): Break the recording into files of approximately this many milliseconds. max =  4 294 967 295 min = 0
+            
+            circular(uint): Write output to a circular buffer of the given size (in MB) which is saved on exit. max =  4 294 967 295 min = 0
+            
+            frames(uint): Run for the exact number of frames specified. This will override any timeout set. max =  4 294 967 295 min = 0
+            
+            libavVideoCodec(string): Sets the libav video codec to use. To list available codecs, run the "ffmpeg -codecs" command.
+            
+            libavVideoCodecOpts(string): Sets the libav video codec options to use. These override the internal defaults (check 'encoderOptions*()' in 'encoder/libav_encoder.cpp' for the defaults). Separate key and value with "=" and multiple options with ";". e.g.: "preset=ultrafast;profile=high;partitions=i8x8,i4x4". To list available options for a given codec, run the "ffmpeg -h encoder=libx264" command for libx264.
+            
+            libavFormat(string): Sets the libav encoder output format to use. Leave blank to try and deduce this from the filename.
+            
+            </param>
+            <returns>String with parameters</returns>
+        </member>
+        <member name="M:LibCamera.LibCameraModel.ToString">
+            <summary>
+            Что-то интересное.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Camera">
+            <summary>
+            It is a camera-id.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Verbose">
+            <summary>
+            Set verbosity level. Level 0 is no output, 1 is default, 2 is verbose.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Config">
+            <summary>
+            Read the options from a file. If no filename is specified, default to config.txt. In case of duplicate options, the ones provided on the command line
+            will be used. Note that the config file must only contain the long form options.
+            If set "-" to Config local _config will "config.txt".
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.InfoText">
+             <summary>
+             Sets the information string on the titlebar. Available values:
+             <list type="bullet">
+            <item>%frame(frame number)</item>
+            <item>%fps(framerate)</item>
+            <item>%exp(shutter speed)</item>
+            <item>%ag(analogue gain)</item>
+            <item>%dg(digital gain)</item>
+            <item>%rg(red colour gain)</item>
+            <item>%bg(blue colour gain)</item>
+            <item>%focus(focus FoM value)</item>
+            <item>%aelock(AE locked status)</item>
+            <item>%lp(lens position, if known)</item>
+            <item>%afstate(AF state, if supported)</item>
+            </list>
+             default: "#%frame (%fps fps) exp %exp ag %ag dg %dg".
+             </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Width">
+            <summary>
+            Set the output image width (0 = use default value).
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Height">
+            <summary>
+            Set the output image height (0 = use default value).
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.TimeOut">
+            <summary>
+            Time for which program runs. If no units are provided default to ms.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Output">
+            <summary>
+            Set the output file name.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.PostProcessFile">
+            <summary>
+            Set the file name for configuring the post-processing.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.PostProcessLibs">
+            <summary>
+            Set a custom location for the post-processing library .so files.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.NoPreview">
+            <summary>
+            Do not show a preview window.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Preview">
+            <summary>
+            Set the preview window dimensions, given as x,y,width,height e.g. 0,0,640,480.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Fullscreen">
+            <summary>
+            Use a fullscreen preview window.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.QTPreview">
+            <summary>
+            Use Qt-based preview window (WARNING: causes heavy CPU load, fullscreen not supported).
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.HFlip">
+            <summary>
+            Request a horizontal flip transform.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.VFlip">
+            <summary>
+            Request a vertical flip transform.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Rotation">
+            <summary>
+            Request an image rotation, 0 or 180. Отзеркаливание изображения, 0 (false) - не зеркалит, 180 (true) - зеркалит.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.ROI">
+            <summary>
+            Set region of interest (digital zoom) e.g. 0.25, 0.25, 0.5, 0.5.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Shutter">
+            <summary>
+            Set a fixed shutter speed. If no units are provided default to us.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Gain">
+            <summary>
+            Set a fixed gain value.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Metering">
+            <summary>
+            Set the metering mode (centre, spot, average, custom).
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Exposure">
+            <summary>
+            Set the exposure mode (normal, sport).
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.EV">
+            <summary>
+            Set the EV exposure compensation, where 0 = no change.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.AWB">
+            <summary>
+            Set the AWB mode (auto, incandescent, tungsten, fluorescent, indoor, daylight, cloudy, custom).
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.AWBGains">
+            <summary>
+            Set explict red and blue gains (disable the automatic AWB algorithm).
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Flush">
+            <summary>
+            Flush output data as soon as possible.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Wrap">
+            <summary>
+            When writing multiple output files, reset the counter when it reaches this number.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Brightness">
+            <summary>
+            Adjust the brightness of the output images, in the range -1.0 to 1.0.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Contrast">
+            <summary>
+            Adjust the contrast of the output image, where 1.0 = normal contrast.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Saturation">
+            <summary>
+            Adjust the colour saturation of the output, where 1.0 = normal and 0.0 = greyscale.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Sharpness">
+            <summary>
+            Adjust the sharpness of the output image, where 1.0 = normal sharpening.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Framerate">
+            <summary>
+            Set the fixed framerate for preview and video modes.
+            </summary>        
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Denoise">
+            <summary>
+            Sets the Denoise operating mode: auto, off, cdn_off, cdn_fast, cdn_hq.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.ViewFinderWidth">
+            <summary>
+            Width of viewfinder frames from the camera (distinct from the preview window size).
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.ViewFinderHeight">
+            <summary>
+            Height of viewfinder frames from the camera (distinct from the preview window size).
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.TuningFile">
+            <summary>
+            Name of camera tuning file to use, omit this option for libcamera default behaviour.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.LoresWidth">
+            <summary>
+            Width of low resolution frames (use 0 to omit low resolution stream).
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.LoresHeight">
+            <summary>
+            Height of low resolution frames (use 0 to omit low resolution stream).
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Mode">
+            <summary>
+            Camera mode as W:H:bit-depth:packing, where packing is P (packed) or U (unpacked).
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.ViewFinderMode">
+            <summary>
+            Camera mode for preview as W:H:bit-depth:packing, where packing is P (packed) or U (unpacked).
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.BufferCount">
+            <summary>
+            Number of in-flight requests (and buffers) configured for video, raw, and still.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.ViewFinderBufferCount">
+            <summary>
+            Number of in-flight requests (and buffers) configured for preview window.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.NoRaw">
+            <summary>
+            Disable requesting of a RAW stream. Will override any manual mode reqest the mode choice when setting framerate.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.AutoFocusMode">
+            <summary>
+            Control to set the mode of the AF (autofocus) algorithm.(manual, auto, continuous).
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.AutoFocusRange">
+            <summary>
+            Set the range of focus distances that is scanned.(normal, macro, full).
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.AutoFocusSpeed">
+            <summary>
+            Control that determines whether the AF algorithm is to move the lens as quickly as possible or more steadily. (normal, fast).
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.AutoFocusWindow">
+            <summary>
+            Sets AfMetering to  AfMeteringWindows an set region used, e.g. 0.25,0.25,0.5,0.5.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.LensPosition">
+            <summary>
+            Set the lens to a particular focus position, expressed as a reciprocal distance (0 moves the lens to infinity), or "default" for the hyperfocal distance.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.HDR">
+            <summary>
+            Enable High Dynamic Range, where supported. Available values are "off", "auto", "sensor" for sensor HDR(e.g. for Camera Module 3), "single-exp" 
+            for PiSP based single exposure multiframe HDR.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Metadata">
+            <summary>
+            Save captured image metadata to a file or "-" for stdout.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.MetadataFormat">
+            <summary>
+            Format to save the metadata in, either txt or json (requires --metadata).
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.FlickerPeriod">
+            <summary>
+             Manual flicker correction period. Set to 10000us to cancel 50Hz flicker. Set to 8333us to cancel 60Hz flicker.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Bitrate">
+            <summary>
+            Set the video bitrate for encoding. If no units are provided, default to bits/second.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Profile">
+            <summary>
+            Set the encoding profile.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Level">
+            <summary>
+            Set the encoding level.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Intra">
+            <summary>
+            Set the intra frame period.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Inline">
+            <summary>
+            Force PPS/SPS header with every I frame (h264 only).
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Codec">
+            <summary>
+            Set the codec to use, either h264, libav, mjpeg or yuv420.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Quality">
+            <summary>
+            Set the MJPEG quality parameter (mjpeg only). (=50)
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.SavePts">
+            <summary>
+            Save a timestamp file with this name.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Listen">
+            <summary>
+            Listen for an incoming client network connection before sending data to the client.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.KeyPress">
+            <summary>
+            Pause or resume video recording when ENTER pressed.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Signal">
+            <summary>
+            Pause or resume video recording when signal received.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Initial">
+            <summary>
+            Use 'pause' to pause the recording at startup, otherwise 'record' (the default).
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Split">
+            <summary>
+            Create a new output file every time recording is paused and then resumed.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Segment">
+            <summary>
+            Break the recording into files of approximately this many milliseconds.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Circular">
+            <summary>
+            Write output to a circular buffer of the given size (in MB) which is saved on exit.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.Frames">
+            <summary>
+            Run for the exact number of frames specified. This will override any timeout set.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.LibavVideoCodec">
+            <summary>
+            Sets the libav video codec to use. To list available codecs, run  the "ffmpeg -codecs" command.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.LibavVideoCodecOpts">
+            <summary>
+            Без какой-либо валидации! Валидацию следует реализовать при возникновении необходимости использовать этот параметр.
+            Sets the libav video codec options to use. These override the internal defaults (check 'encoderOptions*()' in 'encoder/libav_encoder.cpp' for the defaults). 
+            Separate key and value with "=" and multiple options with ";". e.g.: "preset=ultrafast;profile=high;partitions=i8x8,i4x4". To list available options
+            for a given codec, run the "ffmpeg -h encoder=libx264" command for libx264.
+            </summary>
+        </member>
+        <member name="P:LibCamera.LibCameraModel.LibavFormat">
+            <summary>
+            Аналогично параметру <see cref="P:LibCamera.LibCameraModel.LibavVideoCodec"/> без валидации.
+            Sets the libav encoder output format to use. Leave blank to try and deduce this from the filename.
+            </summary>
+        </member>
+    </members>
+</doc>
